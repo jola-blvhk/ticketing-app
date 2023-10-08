@@ -10,7 +10,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   errorMessage?: string;
 }
 
-export const Input = forwardRef(
+const Input = forwardRef(
   (
     {
       name,
@@ -64,3 +64,6 @@ export const Input = forwardRef(
     );
   }
 );
+
+Input.displayName = "Input";
+export { Input };
