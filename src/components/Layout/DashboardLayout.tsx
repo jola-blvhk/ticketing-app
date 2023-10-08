@@ -9,6 +9,9 @@ interface DashboadLayoutProps {
 }
 
 const DashboadLayout = ({ children }: DashboadLayoutProps) => {
+  const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
+
+  console.log(hankoApi);
   return (
     <ErrorBoundary
       fallback={

@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
-  label: string;
+  label?: string;
   prefix?: string;
   type?: "text" | "search";
   inputClass?: string;

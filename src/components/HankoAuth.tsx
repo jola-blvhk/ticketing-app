@@ -2,17 +2,17 @@
 
 // import { useEffect, useCallback, useState } from "react";
 // import { useRouter } from "next/navigation";
-// import { register } from "@teamhanko/hanko-elements";
+// import { register, Hanko } from "@teamhanko/hanko-elements";
 
-// // @ts-ignore
-// import type { Hanko } from "@teamhanko/hanko-elements";
+// // // @ts-ignore
+// // import type { Hanko } from "@teamhanko/hanko-elements";
 
-// declare const process: {
-//   env: {
-//     HANKO_API_URL: string;
-//   };
-// };
-// const hankoApi = process.env.HANKO_API_URL;
+// // declare const process: {
+// //   env: {
+// //     HANKO_API_URL: string;
+// //   };
+// // };
+// const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
 
 // console.log(hankoApi);
 // export default function HankoAuth() {

@@ -8,7 +8,11 @@ import { FaCalendarDays, FaX } from "react-icons/fa6";
 import { SlLogout, SlSettings } from "react-icons/sl";
 import { cn } from "@/lib/utils/cn";
 import { GrFormClose } from "react-icons/gr";
-
+import { GoHome } from "react-icons/go";
+import { IoTicketOutline } from "react-icons/io5";
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { FiHelpCircle } from "react-icons/fi";
+import { TbLogout2 } from "react-icons/tb";
 interface SidebarProps {
   onClickX?: () => void;
   onClickLink?: () => void;
@@ -16,24 +20,29 @@ interface SidebarProps {
 
 const routes = [
   {
-    label: "Timeline",
-    path: "/timeline",
-    icon: MdTimeline,
+    label: "Home",
+    path: "/",
+    icon: GoHome,
   },
   {
-    label: "My People",
-    path: "/people",
-    icon: IoIosPeople,
+    label: "Tickets",
+    path: "/tickets",
+    icon: IoTicketOutline,
   },
   {
-    label: "Calendar",
-    path: "/calendar",
-    icon: FaCalendarDays,
+    label: "Admin",
+    path: "/admin",
+    icon: MdOutlineAdminPanelSettings,
   },
   {
     label: "Settings",
     path: "/settings",
     icon: SlSettings,
+  },
+  {
+    label: "Need Help?",
+    path: "/faqs",
+    icon: FiHelpCircle,
   },
 ];
 const SideBar = ({ onClickLink, onClickX }: SidebarProps) => {
@@ -62,7 +71,7 @@ const SideBar = ({ onClickLink, onClickX }: SidebarProps) => {
                 className={cn(
                   "text-sm group flex p-3 w-full justify-start font-medium cursor-pointer rounded-lg transition",
                   pathname === route.path
-                    ? "bg-white text-secondary"
+                    ? " text-secondary"
                     : "text-white bg-none hover:bg-white/10"
                 )}
               >
@@ -79,7 +88,7 @@ const SideBar = ({ onClickLink, onClickX }: SidebarProps) => {
               onClick={onClickLink}
               className="text-sm group flex p-3 w-full justify-start font-medium cursor-pointer rounded-lg transition text-white bg-none hover:bg-white/10 items-center"
             >
-              <SlLogout className={cn("h-5 w-5 mr-3 text-xl")} />
+              <TbLogout2 className={cn("h-5 w-5 mr-3 text-xl")} />
               <div className="flex items-center flex-1 text-lg lg:text-xl">
                 Logout
               </div>
