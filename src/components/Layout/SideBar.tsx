@@ -7,6 +7,7 @@ import { IoIosPeople } from "react-icons/io";
 import { FaCalendarDays, FaX } from "react-icons/fa6";
 import { SlLogout, SlSettings } from "react-icons/sl";
 import { cn } from "@/lib/utils/cn";
+import { GrFormClose } from "react-icons/gr";
 
 interface SidebarProps {
   onClickX?: () => void;
@@ -49,6 +50,7 @@ const SideBar = ({ onClickLink, onClickX }: SidebarProps) => {
               </h1>
             </div>
           </Link>
+          <GrFormClose className="md:hidden" onClick={onClickX} />
         </div>
         <div className="flex flex-col justify-between h-[75dvh]">
           <div className="space-y-2">
