@@ -12,8 +12,8 @@ const MobileSidebar = () => {
   return (
     <div className="lg:hidden">
       <div
-        className={`fixed top-0 left-0 w-full h-full ${
-          isOpen ? "bg-gray-700 bg-opacity-50" : "bg-transparent"
+        className={`fixed border-2 border-blue-600 top-0 left-0 w-full h-full ${
+          isOpen ? "bg-gray-700 bg-opacity-50" : ""
         } transition-opacity`}
         onClick={() => setIsOpen(false)}
       >
@@ -25,9 +25,13 @@ const MobileSidebar = () => {
           <SideBar onClickX={toggleSidebar} onClickLink={toggleSidebar} />
         </div>
       </div>
-      <div className={isOpen ? "hidden" : "absolute z-10 top-0 left-0 p-4"}>
+      <div
+        className={
+          isOpen ? "hidden" : "absolute z-10 top-0 left-0 p-4 border w-full"
+        }
+      >
         <AiOutlineMenu
-          className="h-8 w-8 text-gray-500 hover:text-gray-900 cursor-pointer"
+          className="h-6 w-6 text-gray-500 hover:text-gray-900 cursor-pointer"
           onClick={toggleSidebar}
         />
       </div>
