@@ -1,6 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { MdTimeline } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
@@ -13,6 +13,9 @@ import { IoTicketOutline } from "react-icons/io5";
 import { MdOutlineAdminPanelSettings } from "react-icons/md";
 import { FiHelpCircle } from "react-icons/fi";
 import { TbLogout2 } from "react-icons/tb";
+// @ts-ignore
+import type { Hanko } from "@teamhanko/hanko-elements";
+import { useEffect, useState } from "react";
 interface SidebarProps {
   onClickX?: () => void;
   onClickLink?: () => void;
@@ -45,8 +48,29 @@ const routes = [
     icon: FiHelpCircle,
   },
 ];
+
+const hankoApi = process.env.NEXT_PUBLIC_HANKO_API_URL;
 const SideBar = ({ onClickLink, onClickX }: SidebarProps) => {
   const pathname = usePathname();
+  const router = useRouter();
+  const [hanko, setHanko] = useState<Hanko>();
+
+  useEffect(() => {
+    import("@teamhanko/hanko-elements").then(({ Hanko }) =>
+      setHanko(new Hanko(hankoApi ?? ""))
+    );
+  }, []);
+
+  const logout = async () => {
+    try {
+      await hanko?.user.logout();
+      router.push("/");
+      router.refresh();
+      return;
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
 
   return (
     <div className="flex flex-col h-full bg-red-700">
@@ -85,7 +109,10 @@ const SideBar = ({ onClickLink, onClickX }: SidebarProps) => {
           <div className="space-y-2">
             <Link
               href="/"
-              onClick={onClickLink}
+              onClick={() => {
+                logout();
+                onClickLink;
+              }}
               className="text-sm group flex p-3 w-full justify-start font-medium cursor-pointer rounded-lg transition text-white bg-none hover:bg-white/10 items-center"
             >
               <TbLogout2 className={cn("h-5 w-5 mr-3 text-xl")} />
