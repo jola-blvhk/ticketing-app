@@ -54,6 +54,13 @@ export default function LoginPage() {
               </div>
             </div>
           </div>
+
+          <section className="mt-10">
+            <h1>Employees</h1>
+            <div>
+              <h2>Adeleke Tominsin</h2>
+            </div>
+          </section>
         </div>
       </DashboadLayout>
     </>

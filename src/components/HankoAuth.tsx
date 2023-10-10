@@ -9,7 +9,6 @@ import type { Hanko } from "@teamhanko/hanko-elements";
 
 const hankoApi: any = process.env.NEXT_PUBLIC_HANKO_API_URL;
 
-console.log(hankoApi);
 export default function HankoAuth() {
   const router = useRouter();
 
